@@ -21,7 +21,7 @@ class QuestWindow extends UIElement
     setup()
     {
         this.window = document.getElementById("quest");
-        this.text = document.getElementById("questText");
+        this.text = document.getElementById("questTextSpan");
         this.remnant = document.getElementById("questRemnantText");
         this.params = document.getElementById("questParamText");
         this.buttonText = [];
