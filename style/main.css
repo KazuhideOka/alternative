@@ -13,7 +13,8 @@
 	--text-gray-color: #AAAAAA;
 	/* フォントサイズ */
 	--text-font-size: 200%;
-	--button-font-size: 160%;
+	--header-font-size: 300%;
+	--button-font-size: 240%;
 	--item-font-size: 180%;
 	/* 太字 */
 	--bold-font-weight: 1;
@@ -74,12 +75,12 @@ html {
 
 @font-face {
 	font-family: "gothic";
-	src: url("../resources/font/font00.otf");
+	src: url("../resources/font/font00.ttf");
 }
 
 @font-face {
 	font-family: "mincho";
-	src: url("../resources/font/font01.otf");
+	src: url("../resources/font/font00.ttf");
 }
 
 body {
