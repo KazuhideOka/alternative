@@ -17,6 +17,6 @@
     top: 65%;
     left: 0%;
     color: var(--text-light-color);
-    font-size: var(--text-font-size);
+    font-size: var(--header-font-size);
     text-align: center;
 }
