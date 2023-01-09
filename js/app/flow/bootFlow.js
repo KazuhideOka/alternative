@@ -21,7 +21,7 @@ class BootFlow extends Flow
 
     updateFlow()
     {
-        globalSystem.flowManager.setFlow(new QuestFlow());
+        globalSystem.flowManager.setFlow(new TitleFlow());
     }
 
     exitFlow()
