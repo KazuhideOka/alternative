@@ -1,0 +1,195 @@
+:root {
+	/* 動的変数 */
+	--dynamic-wrapper-width: 0px;
+	--dynamic-wrapper-height: 0px;
+	/* 基本色 */
+	--light-color: #EEEEEE;
+	--dark-color: #222222;
+	/* テキスト色 */
+	--text-light-color: #EEEEEE;
+	--text-dark-color: #111111;
+	--text-red-color: #FF5555;
+	--text-blue-color: #0193b5;
+	--text-gray-color: #AAAAAA;
+	/* フォントサイズ */
+	--text-font-size: 200%;
+	--button-font-size: 160%;
+	--item-font-size: 180%;
+	/* 太字 */
+	--bold-font-weight: 1;
+	/* 文字間 */
+	--header-letter-spacing: calc(var(--dynamic-wrapper-width) * 0.006);
+	/* ボーダー */
+	--border-light-color: #EEEEEE;
+	--border-dark-color: #111111;
+	--border-shadow-color: rgba(0, 0, 0, 0.4);
+	--border-width: calc(var(--dynamic-wrapper-height) * 0.002);
+	/* ボタン */
+	--button-border-width: var(--border-width);
+	/* 背景 */
+	--back-ground-color: #111111;
+	/* マージン*/
+	--margin-top-border-gradient: linear-gradient(180deg, rgba(230, 230, 230, 1) 0%, rgba(255, 255, 255, 1) 100%);
+	--margin-bottom-border-gradient: linear-gradient(0deg, rgba(230, 230, 230, 1) 0%, rgba(255, 255, 255, 1) 100%);
+	/* ブラー */
+	--back-ground-blur: blur(calc(var(--dynamic-wrapper-width) * 0.005));
+	--back-ground-blur-mask-left: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 100%);
+	--back-ground-blur-mask-right: linear-gradient(-90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 100%);
+	/* フレーム */
+	--frame-gradient: linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0.3) 100%);
+	--frame-gradient-left: linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 60%, rgba(0, 0, 0, 0) 100%);
+	--frame-gradient-right: linear-gradient(-90deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 60%, rgba(0, 0, 0, 0) 100%);
+	/* テキストの影 */
+	--text-shadow-light-color: rgba(240, 240, 240, 0.6);
+	--text-shadow-dark-color: rgba(0, 0, 0, 0.6);
+	--text-shadow-dark:
+		4px 4px 10px var(--text-shadow-dark-color),
+		-4px 4px 10px var(--text-shadow-dark-color),
+		4px -4px 10px var(--text-shadow-dark-color),
+		-4px -4px 10px var(--text-shadow-dark-color),
+		4px 0px 10px var(--text-shadow-dark-color),
+		0px 4px 10px var(--text-shadow-dark-color),
+		-4px 0px 10px var(--text-shadow-dark-color),
+		0px -4px 10px var(--text-shadow-dark-color);
+	--text-shadow-light:
+		4px 4px 10px var(--text-shadow-light-color),
+		-4px 4px 10px var(--text-shadow-light-color),
+		4px -4px 10px var(--text-shadow-light-color),
+		-4px -4px 10px var(--text-shadow-light-color),
+		4px 0px 10px var(--text-shadow-light-color),
+		0px 4px 10px var(--text-shadow-light-color),
+		-4px 0px 10px var(--text-shadow-light-color),
+		0px -4px 10px var(--text-shadow-light-color);
+}
+
+html {
+	touch-action: manipulation;
+	width: 100%;
+	height: 100%;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+@font-face {
+	font-family: "gothic";
+	src: url("../resources/font/font00.otf");
+}
+
+@font-face {
+	font-family: "mincho";
+	src: url("../resources/font/font01.otf");
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	background-color: var(--back-ground-color);
+	overflow: hidden;
+	position: fixed;
+}
+
+.app {
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	color: var(--text-dark-color);
+	font-size: 100%;
+}
+
+.border {
+	border: none;
+	height: var(--border-width);
+	background: var(--border-dark-color);
+	/*
+	box-shadow: 0px 0px 10px 10px var(--border-shadow-color);
+	*/
+}
+
+div.app {
+	position: absolute;
+	box-sizing: border-box;
+	margin: 0;
+	background-size: cover;
+	border: solid;
+	border-width: 0;
+	border-color: var(--border-dark-color);
+	font-family: "mincho";
+	transform-origin: 0 0;
+	line-height: 140%;
+}
+
+button.app {
+	position: absolute;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+	white-space: nowrap;
+	background-size: cover;
+	font-family: "mincho";
+	outline: none;
+	transition: all 0.5s;
+}
+
+button.app:hover {
+	transform: scale(1.05, 1.05);
+	color: var(--text-blue-color);
+	cursor: pointer;
+}
+
+button.app:before {
+	content: '';
+	position: absolute;
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	left: 50%;
+	top: 0%;
+	border-bottom: solid var(--button-border-width) var(--border-dark-color);
+	transform: translate(-50%);
+	pointer-events: none;
+	transition: all 0.5s;
+}
+
+button.app:hover:before {
+	width: 0%;
+	cursor: pointer;
+}
+
+button.borderless:before {
+	border: none;
+}
+
+button.text {
+	position: relative;
+	color: var(--text-red-color);
+}
+
+button.text:hover {
+	transform: scale(1.05, 1.05);
+	color: var(--text-red-color);
+	cursor: pointer;
+}
+
+.header {
+	font-size: var(--header-font-size);
+	font-weight: var(--bold-font-weight);
+	letter-spacing: var(--header-letter-spacing);
+}
+
+a.app {
+	color: var(--text-dark-color);
+	text-shadow: none;
+}
+
+#wrapper {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+}

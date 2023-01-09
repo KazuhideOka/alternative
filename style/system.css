@@ -1,0 +1,9 @@
+#fade {
+    width: 120%;
+    height: 120%;
+    left: -10%;
+    top: -10%;
+    background-color: #222222;
+    opacity: 1.0;
+    will-change: opacity;
+}

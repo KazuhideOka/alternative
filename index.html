@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <title>alternative</title>
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="resources/icon/icon_256x256.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="resources/icon/apple-touch-icon.png">
+
+    <link rel="stylesheet" type="text/css" href="style/main.css">
+    <link rel="stylesheet" type="text/css" href="style/system.css">
+    <link rel="stylesheet" type="text/css" href="style/quest.css">
+    <link rel="stylesheet" type="text/css" href="style/loading.css">
+    <link rel="stylesheet" type="text/css" href="style/background.css">
+    <link rel="stylesheet" type="text/css" href="style/develop.css">
+
+    <script type="text/javascript" src="js/system/core/globalSystem.js"></script>
+    <script type="text/javascript" src="js/system/core/dataHolder.js"></script>
+    <script type="text/javascript" src="js/system/core/globalManager.js"></script>
+    <script type="text/javascript" src="js/system/core/timeManager.js"></script>
+
+    <script type="text/javascript" src="js/system/utility/csvLoader.js"></script>
+    <script type="text/javascript" src="js/system/utility/random.js"></script>
+    <script type="text/javascript" src="js/system/utility/class.js"></script>
+    <script type="text/javascript" src="js/system/utility/list.js"></script>
+    <script type="text/javascript" src="js/system/utility/element.js"></script>
+    <script type="text/javascript" src="js/system/utility/type.js"></script>
+    <script type="text/javascript" src="js/system/utility/color.js"></script>
+    <script type="text/javascript" src="js/system/utility/platform.js"></script>
+    <script type="text/javascript" src="js/system/utility/curve.js"></script>
+    <script type="text/javascript" src="js/system/utility/animator.js"></script>
+    <script type="text/javascript" src="js/system/utility/window.js"></script>
+    <script type="text/javascript" src="js/system/utility/stringExtension.js"></script>
+    <script type="text/javascript" src="js/system/utility/shaker.js"></script>
+    <script type="text/javascript" src="js/system/utility/tag.js"></script>
+    <script type="text/javascript" src="js/system/utility//timer.js"></script>
+
+    <script type="text/javascript" src="js/system/ui/uiManager.js"></script>
+    <script type="text/javascript" src="js/system/ui/uiElement.js"></script>
+
+    <script type="text/javascript" src="js/system/sound/soundElement.js"></script>
+    <script type="text/javascript" src="js/system/sound/soundManager.js"></script>
+    <script type="text/javascript" src="js/system/sound/soundDataHolder.js"></script>
+
+    <script type="text/javascript" src="js/system/movie/movieManager.js"></script>
+    <script type="text/javascript" src="js/system/movie/movieDataHolder.js"></script>
+
+    <script type="text/javascript" src="js/app/core/gameManager.js"></script>
+    <script type="text/javascript" src="js/app/core/messageDataHolder.js"></script>
+    <script type="text/javascript" src="js/app/core/resourceManager.js"></script>
+
+    <script type="text/javascript" src="js/app/ui/fader.js"></script>
+    <script type="text/javascript" src="js/app/ui/questWindow.js"></script>
+    <script type="text/javascript" src="js/app/ui/windowManager.js"></script>
+
+    <script type="text/javascript" src="js/app/event/eventDataHolder.js"></script>
+    <script type="text/javascript" src="js/app/event/eventExecutor.js"></script>
+
+    <script type="text/javascript" src="js/app/flow/flow.js"></script>
+    <script type="text/javascript" src="js/app/flow/flowManager.js"></script>
+    <script type="text/javascript" src="js/app/flow/questFlow.js"></script>
+    <script type="text/javascript" src="js/app/flow/bootFlow.js"></script>
+
+    <script type="text/javascript" src="js/app/survivor/surviorDataHolder.js"></script>
+    <script type="text/javascript" src="js/app/survivor/survivor.js"></script>
+    <script type="text/javascript" src="js/app/survivor/survivorManager.js"></script>
+
+    <script type="text/javascript" src="js/system/main.js"></script>
+</head>
+
+<body id="body" onLoad="onLoad()">
+    <div class="app" id="sound"></div>
+    <div class="app" id="wrapper">
+        <div class="app" id="background"></div>
+        <div class="app" id="quest">
+            <div class="app" id="questRemnantWindow">
+                <div class="app" id="questRemnantText"></div>
+            </div>
+            <div class="app" id="questTextWindow">
+                <div class="app" id="questText"></div>
+            </div>
+            <div class="app" id="questParamWindow">
+                <div class="app" id="questParamText"></div>
+            </div>
+            <div class="app" id="questButton0">
+                <div class="app" id="questButtonTextWindow0">
+                    <div class="app" id="questButtonText0"></div>
+                </div>
+            </div>
+            <div class="app" id="questButton1">
+                <div class="app" id="questButtonTextWindow1">
+                    <div class="app" id="questButtonText1"></div>
+                </div>
+            </div>
+        </div>
+        <div class="app" id="movie">
+            <video class="app" id="movieVideo"></video>
+            <div class="app" id="movieFill"></div>
+        </div>
+        <div class="app" id="fade"></div>
+        <div class="app" id="develop">
+            <div class="app" id="developWatermark"></div>
+        </div>
+    </div>
+    <div id="loading">
+        <div id="loadingImage"></div>
+    </div>
+
+    <script type="text/javascript" src="js/develop/dip/dipSwitch.js"></script>
+</body>
+
+</html>
