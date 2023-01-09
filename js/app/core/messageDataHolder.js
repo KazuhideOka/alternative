@@ -13,7 +13,24 @@ class MessageDataHolder extends DataHolder
             ]);
     }
 
-
+    onLoad()
+    {
+        var keys = Object.keys(this.dicts[0]);
+        for (var id of keys)
+        {
+            var element = document.getElementById(id);
+            if (element == null)
+            {
+                continue;
+            }
+            var list = this.dicts[0][id];
+            if (list.length == 0)
+            {
+                continue;
+            }
+            element.innerHTML = list[0].text;
+        }
+    }
 }
 
 new MessageDataHolder();
