@@ -27,7 +27,7 @@
 	/* ボタン */
 	--button-border-width: var(--border-width);
 	/* 背景 */
-	--back-ground-color: #111111;
+	--back-ground-color: #000;
 	/* マージン*/
 	--margin-top-border-gradient: linear-gradient(180deg, rgba(230, 230, 230, 1) 0%, rgba(255, 255, 255, 1) 100%);
 	--margin-bottom-border-gradient: linear-gradient(0deg, rgba(230, 230, 230, 1) 0%, rgba(255, 255, 255, 1) 100%);
