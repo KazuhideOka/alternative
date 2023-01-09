@@ -28,7 +28,7 @@ class EventExecutor
                     }
                 }
                 var random = Random.range(100) / 100.0;
-                if (random > Number(data.ratio))
+                if (random >= Number(data.ratio))
                 {
                     return false;
                 }
