@@ -28,8 +28,8 @@ class QuestWindow extends UIElement
         this.remnant = document.getElementById("questRemnantText");
         this.params = document.getElementById("questParamText");
         this.buttonText = [];
-        this.buttonText.push(document.getElementById("questButtonText0"));
-        this.buttonText.push(document.getElementById("questButtonText1"));
+        this.buttonText.push(document.getElementById("questButtonTextSpan0"));
+        this.buttonText.push(document.getElementById("questButtonTextSpan1"));
         this.buttons = [];
         this.buttons.push(document.getElementById("questButton0"));
         this.buttons.push(document.getElementById("questButton1"));
