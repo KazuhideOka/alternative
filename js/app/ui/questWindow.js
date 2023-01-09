@@ -4,11 +4,13 @@ class QuestWindow extends UIElement
     {
         super("quest");
         this.window = null;
+        this.image = null;
         this.text = null;
         this.remnant = null;
         this.params = null;
         this.buttonText = [];
         this.buttons = [];
+        this.imageUrl = null;
         this.animator = new Animator();
     }
 
@@ -21,6 +23,7 @@ class QuestWindow extends UIElement
     setup()
     {
         this.window = document.getElementById("quest");
+        this.image = document.getElementById("questImage");
         this.text = document.getElementById("questTextSpan");
         this.remnant = document.getElementById("questRemnantText");
         this.params = document.getElementById("questParamText");
@@ -68,9 +71,27 @@ class QuestWindow extends UIElement
         this.params.innerHTML = text;
     }
 
-    fadeInText(time)
+    setImage(image)
     {
-        this.animator.opacity(this.text, 0, 1, time, "ease-in");
+        this.image.style.opacity = 0;
+
+        if (StringExtension.isValid(image))
+        {
+            var url = `url(resources/image/${image}.png)`;
+            this.image.style.backgroundImage = url;
+            this.image.style.opacity = 1;
+        }
+    }
+
+    fadeIn(time)
+    {
+        var imageChanged = (this.imageUrl != this.image.style.backgroundImage);
+        if (imageChanged)
+        {
+            this.image.style.opacity = 0;
+            this.animator.opacity(this.image, 0, 1, time, "ease-in");
+            this.imageUrl = this.image.style.backgroundImage;
+        }
 
         this.text.style.opacity = 0;
         this.animator.opacity(this.text, 0, 1, time, "ease-in");

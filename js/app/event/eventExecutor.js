@@ -43,12 +43,13 @@ class EventExecutor
         this.current = data;
 
         var survivor = globalSystem.survivorManager.getSurvivor();
+        globalSystem.uiManager.quest.setImage(data.image);
         globalSystem.uiManager.quest.setText(data.text);
         globalSystem.uiManager.quest.setParam(survivor.params);
         globalSystem.uiManager.quest.setButton(0, data.selection0, () => { this.select(data, 0, survivor); });
         globalSystem.uiManager.quest.setButton(1, data.selection1, () => { this.select(data, 1, survivor); });
 
-        globalSystem.uiManager.quest.fadeInText(1.0);
+        globalSystem.uiManager.quest.fadeIn(1.0);
     }
 
     select(data, index, survivor)
