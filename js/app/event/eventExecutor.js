@@ -87,7 +87,7 @@ class EventExecutor
                 break;
             case "returnToTitle":
                 {
-                    location.reload();
+                    globalSystem.flowManager.setFlow(new TitleFlow());
                 }
                 break;
             default:
