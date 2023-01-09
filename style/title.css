@@ -1,0 +1,22 @@
+#title {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+#titleImage {
+    width: 100%;
+    height: 40%;
+    top: 20%;
+    background-image: url("../resources/image/title00.png");
+}
+
+#titleText {
+    width: 100%;
+    height: 20%;
+    top: 65%;
+    left: 0%;
+    color: var(--text-light-color);
+    font-size: var(--text-font-size);
+    text-align: center;
+}
