@@ -8,8 +8,9 @@ class QuestWindow extends UIElement
         this.text = null;
         this.remnant = null;
         this.params = null;
-        this.buttonText = [];
         this.buttons = [];
+        this.buttonText = [];
+        this.buttonParam = [];
         this.imageUrl = null;
         this.animator = new Animator();
     }
@@ -27,12 +28,15 @@ class QuestWindow extends UIElement
         this.text = document.getElementById("questTextSpan");
         this.remnant = document.getElementById("questRemnantText");
         this.params = document.getElementById("questParamText");
-        this.buttonText = [];
-        this.buttonText.push(document.getElementById("questButtonTextSpan0"));
-        this.buttonText.push(document.getElementById("questButtonTextSpan1"));
         this.buttons = [];
         this.buttons.push(document.getElementById("questButton0"));
         this.buttons.push(document.getElementById("questButton1"));
+        this.buttonText = [];
+        this.buttonText.push(document.getElementById("questButtonTextSpan0"));
+        this.buttonText.push(document.getElementById("questButtonTextSpan1"));
+        this.buttonParam = [];
+        this.buttonParam.push(document.getElementById("questButtonTextParam0"));
+        this.buttonParam.push(document.getElementById("questButtonTextParam1"));
     }
 
     update()
@@ -45,14 +49,39 @@ class QuestWindow extends UIElement
         this.text.innerHTML = text;
     }
 
-    setButton(index, text, onSelect)
+    setButton(index, text, params, onSelect)
     {
         this.buttonText[index].innerHTML = "";
+        this.buttonParam[index].innerHTML = "";
         this.buttons[index].onclick = null;
 
         if (StringExtension.isValid(text))
         {
             this.buttonText[index].innerHTML = text;
+            var paramText = "";
+            for (var i = 0; i < params.length; i++)
+            {
+                if (params[i] > 0)
+                {
+                    if (paramText.length > 0)
+                    {
+                        paramText += "　";
+                    }
+                    paramText += `${Message.get(`param${i}`)}:+${params[i]}`;
+                }
+                else if (params[i] < 0)
+                {
+                    if (paramText.length > 0)
+                    {
+                        paramText += "　";
+                    }
+                    paramText += `${Message.get(`param${i}`)}:${params[i]}`;
+                }
+            }
+            if (StringExtension.isValid(paramText))
+            {
+                this.buttonParam[index].innerHTML = `[${paramText}]`;
+            }
             this.buttons[index].onclick = () => { onSelect(); };
         }
     }
@@ -96,7 +125,7 @@ class QuestWindow extends UIElement
         this.text.style.opacity = 0;
         this.animator.opacity(this.text, 0, 1, time, "ease-in");
 
-        for (var button of this.buttonText)
+        for (var button of this.buttons)
         {
             button.style.opacity = 0;
             this.animator.opacity(button, 0, 1, time, "ease-in");

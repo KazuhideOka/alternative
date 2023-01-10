@@ -77,7 +77,7 @@
 }
 
 #questButton1 {
-	top: 83%;
+	top: 85%;
 }
 
 #questButtonTextWindow0,
@@ -94,6 +94,8 @@
 	left: 50%;
 	scale: 2;
 	transform: translate(-50%, -50%);
+	text-align: center;
+	line-height: 80%;
 }
 
 #questButtonTextSpan0,
@@ -101,4 +103,10 @@
 	color: var(--text-dark-color);
 	font-size: calc(var(--button-font-size) * 0.5);
 	background-color: var(--light-color);
+}
+
+#questButtonTextParam0,
+#questButtonTextParam1 {
+	color: var(--text-light-color);
+	font-size: calc(var(--detail-font-size) * 0.5);
 }

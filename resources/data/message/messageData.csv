@@ -2,5 +2,10 @@ id,text
 titleText,霧の惑星
 -,
 survivorParam,体力:{0}　正気:{1}　電力:{2}　弾薬:{3}
-remnant,脱出まで あと{0}
+remnant,脱出までの距離:{0}
+param0,距離
+param1,体力
+param2,正気
+param3,電力
+param4,弾薬
 -,
