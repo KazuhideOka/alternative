@@ -103,7 +103,7 @@ class EventExecutor
             return false;
         }
 
-        if (survivor.params[0] > 100)
+        if (survivor.params[0] > 30)
         {
             var next = globalSystem.eventData.getDataById("gameOver00");
             if (next != null)
