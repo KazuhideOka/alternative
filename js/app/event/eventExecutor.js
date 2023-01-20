@@ -35,26 +35,27 @@ class EventExecutor
                 }
             }
 
-            if (StringExtension.isValid(data.progressType))
+            if (StringExtension.isValid(data.progress))
             {
                 var current = globalSystem.progressManager.progress;
-                var progress = Number(data.progress);
-                switch (data.progressType)
+                var value = Number(data.progress.replace(/[^0-9]/g, ''));
+                var sign = data.progress.replace(value, "");
+                switch (sign)
                 {
                     case "==":
-                        if (!(current == progress))
+                        if (!(current == value))
                         {
                             return false;
                         }
                         break;
                     case ">=":
-                        if (!(current >= progress))
+                        if (!(current >= value))
                         {
                             return false;
                         }
                         break;
                     case ">":
-                        if (!(current > progress))
+                        if (!(current > value))
                         {
                             return false;
                         }
