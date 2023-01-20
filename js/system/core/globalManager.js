@@ -22,4 +22,13 @@ class GlobalManager
     reset()
     {
     }
+
+    save()
+    {
+        return null;
+    }
+
+    load(data)
+    {
+    }
 }
