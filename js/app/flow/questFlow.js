@@ -11,7 +11,7 @@ class QuestFlow extends Flow
     {
         globalSystem.survivorManager.setupSurvivor();
 
-        var introduction = globalSystem.eventData.getDataById("introduction00");
+        var introduction = globalSystem.eventData.getDataById("start00");
         this.eventExecutor.execute(introduction);
     }
 

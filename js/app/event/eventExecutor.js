@@ -38,7 +38,7 @@ class EventExecutor
             if (StringExtension.isValid(data.progress))
             {
                 var current = globalSystem.progressManager.progress;
-                var value = Number(data.progress.replace(/[^0-9]/g, ''));
+                var value = StringExtension.toNumber(data.progress);
                 var sign = data.progress.replace(value, "");
                 switch (sign)
                 {
@@ -123,10 +123,43 @@ class EventExecutor
         {
             case "insertNext":
                 {
-                    var next = globalSystem.eventData.getDataById(args[0]);
-                    if (next != null)
+                    var order = args[0];
+                    switch (order)
                     {
-                        this.execute(next);
+                        case "id":
+                            {
+                                var next = globalSystem.eventData.getDataById(args[1]);
+                                if (next != null)
+                                {
+                                    this.execute(next);
+                                }
+                            }
+                            break;
+                        case "progress":
+                            {
+                                var eventType = args[1];
+                                var current = globalSystem.progressManager.progress;
+                                var next = globalSystem.eventData.getDataByWhere((data) =>
+                                {
+                                    if (data.type != eventType)
+                                    {
+                                        return false;
+                                    }
+                                    var progress = StringExtension.toNumber(data.progress);
+                                    if (current != progress)
+                                    {
+                                        return false;
+                                    }
+                                    return true;
+                                });
+                                if (next != null)
+                                {
+                                    this.execute(next);
+                                }
+                            }
+                            break;
+                        default:
+                            break;
                     }
                 }
                 break;
