@@ -18,24 +18,61 @@ class EventExecutor
     {
         if (this.isBusy == false)
         {
-            var next = globalSystem.eventData.getRandomByWhere((data) =>
+            var next = this.findNext();
+            this.execute(next);
+        }
+    }
+
+    findNext()
+    {
+        var result = globalSystem.eventData.getRandomByWhere((data) =>
+        {
+            if (this.prev != null)
             {
-                if (this.prev != null)
-                {
-                    if (data.id == this.prev.id)
-                    {
-                        return false;
-                    }
-                }
-                var random = Random.range(100) / 100.0;
-                if (random >= Number(data.ratio))
+                if (data.id == this.prev.id)
                 {
                     return false;
                 }
-                return true;
-            });
-            this.execute(next);
-        }
+            }
+
+            if (StringExtension.isValid(data.progressType))
+            {
+                var current = globalSystem.progressManager.progress;
+                var progress = Number(data.progress);
+                switch (data.progressType)
+                {
+                    case "==":
+                        if (!(current == progress))
+                        {
+                            return false;
+                        }
+                        break;
+                    case ">=":
+                        if (!(current >= progress))
+                        {
+                            return false;
+                        }
+                        break;
+                    case ">":
+                        if (!(current > progress))
+                        {
+                            return false;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            var random = Random.range(100) / 100.0;
+            if (random >= Number(data.ratio))
+            {
+                return false;
+            }
+            return true;
+        });
+
+        return result;
     }
 
     execute(data)
