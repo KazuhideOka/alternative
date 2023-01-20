@@ -41,6 +41,9 @@ class DIPSwitch
         }
         var index = 0;
         DIPSwitch.createTextbox(dip);
+
+        DIPSwitch.createButton(dip, index++, "IDを指定してイベント実行", (e) => { DIPSwitch.executeEvent(); });
+
         DIPSwitch.createButton(dip, index++, "CLOSE", (e) => { DIPSwitch.close(e); });
     }
 
@@ -81,6 +84,24 @@ class DIPSwitch
         parent.appendChild(document.createElement("br"));
 
         DIPSwitch.textbox = textbox;
+    }
+
+    static executeEvent()
+    {
+        var input = DIPSwitch.textbox.value;
+        var data = globalSystem.eventData.getDataById(input);
+        if (data == null)
+        {
+            alert(`IDが${input}のイベントデータが見つかりせんでした。`);
+            return;
+        }
+        var flow = globalSystem.flowManager.currentFlow;
+        if ((flow instanceof QuestFlow) == false)
+        {
+            alert(`Quest中しかイベントを実行できません。`);
+            return;
+        }
+        flow.eventExecutor.execute(data);
     }
 }
 
