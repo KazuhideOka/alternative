@@ -11,6 +11,11 @@ class ProgressManager extends GlobalManager
     {
 
     }
+
+    setProgress(progress)
+    {
+        this.progress = progress;
+    }
 }
 
 new ProgressManager();

@@ -101,7 +101,13 @@ class EventExecutor
         this.prev = this.current;
         this.current = null;
 
-        this.effect(data[`effect${index}`], data[`effectArgs${index}`]);
+        var effects = data[`effects${index}`];
+        for (var effect of effects)
+        {
+            var args = effect.split("-");
+            var effectType = args.shift();
+            this.effect(effectType, args);
+        }
 
         var result = this.check(survivor);
         if (result)
@@ -123,6 +129,11 @@ class EventExecutor
                     }
                 }
                 break;
+            case "setProgress":
+                {
+                    var progress = Number(globalSystem.eventData.getDataById(args[0]));
+                    globalSystem.progressManager.setProgress(progress);
+                }
             case "returnToTitle":
                 {
                     globalSystem.flowManager.setFlow(new TitleFlow());
