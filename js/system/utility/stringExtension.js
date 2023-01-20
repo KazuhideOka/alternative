@@ -38,6 +38,13 @@ class StringExtension
         return result;
     }
 
+    static toNumber(source)
+    {
+        var found = source.replace(/[^0-9]/g, '');
+        var result = Number(found);
+        return result;
+    }
+
     static toNumbers(source)
     {
         var founds = source.match(/\d+/g);
