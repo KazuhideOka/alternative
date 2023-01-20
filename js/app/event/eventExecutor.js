@@ -43,19 +43,19 @@ class EventExecutor
                 switch (sign)
                 {
                     case "==":
-                        if (!(current == value))
+                        if ((current == value) == false)
                         {
                             return false;
                         }
                         break;
                     case ">=":
-                        if (!(current >= value))
+                        if ((current >= value) == false)
                         {
                             return false;
                         }
                         break;
                     case ">":
-                        if (!(current > value))
+                        if ((current > value) == false)
                         {
                             return false;
                         }
@@ -132,9 +132,10 @@ class EventExecutor
                 break;
             case "setProgress":
                 {
-                    var progress = Number(globalSystem.eventData.getDataById(args[0]));
+                    var progress = Number(args[0]);
                     globalSystem.progressManager.setProgress(progress);
                 }
+                break;
             case "returnToTitle":
                 {
                     globalSystem.flowManager.setFlow(new TitleFlow());
