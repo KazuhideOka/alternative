@@ -126,7 +126,7 @@ class EventExecutor
         {
             if (survivor.params[i] <= 0)
             {
-                var next = globalSystem.eventData.getDataById(`gameOver0${i}`);
+                var next = globalSystem.eventData.getDataById(`gameOver${i}0`);
                 if (next != null)
                 {
                     this.execute(next);
