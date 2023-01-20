@@ -35,6 +35,8 @@ class Flow
     {
         this.disableUi(this.elementId);
         this.exitFlow();
+
+        SaveSystem.save();
     }
 
     setupFlow()
